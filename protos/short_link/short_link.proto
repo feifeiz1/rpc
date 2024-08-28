@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package proto.short_link;
+
+import "common/common.proto";
+
+option go_package="github.com/feifeiz1/rpc/kitex_gen/short_link";
+
+message GenLinkReq {
+    string url = 1;
+}
+
+message GenLinkRsp {
+    string short = 1;
+
+    common.CommonRsp common_rsp = 100;
+}
+
+service ShortLinkService {
+    rpc GenLink(GenLinkReq) returns (GenLinkRsp);
+}
